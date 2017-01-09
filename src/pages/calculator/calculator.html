@@ -8,10 +8,10 @@
 
 <ion-content>
   <ion-list>
-    <form>
+    <form (ngSubmit)="calResult()">
       <ion-item>
         <ion-label>Input</ion-label>
-        <ion-input type="text"  name="inputedValue" [(ngModel)]="inputedVal"></ion-input>
+        <ion-input type="text" pattern="^([-]?)(((\\d+)(?:([.])(\\d+))?)+)(?:([-+*\\/])((?:[-])?((\\d+)(?:([.])(\\d+))?)+))+$"  name="inputedValue" [(ngModel)]="inputedVal"></ion-input>
       </ion-item>
       <ion-grid>
         <ion-row>
@@ -39,7 +39,7 @@
           <ion-col width-25><button ion-button full color="dark"  (click)="calOperator('/')">/</button></ion-col>
         </ion-row>
       </ion-grid>
-      <button ion-button type="submit" block (click)="calResult()">Enter</button>
+      <button ion-button type="submit" block>Enter</button>
     </form>
   </ion-list>
 
