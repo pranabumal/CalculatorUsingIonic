@@ -1,45 +1,49 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Calculator
+      <ion-icon name="calculator"></ion-icon> Calculator
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <form novalidate #calculator="ngForm">
-      <ion-item>
-        <ion-input required type="text" pattern="^([-]?)(((\\d+)(?:([.])(\\d+))?)+)(?:([-+*\\/])((?:[-])?((\\d+)(?:([.])(\\d+))?)+))+$"  name="inputedValue" [(ngModel)]="inputedVal"></ion-input>
-      </ion-item>
-      <ion-grid>
-        <ion-row>
-          <ion-col width-25><button ion-button round full color="secondary" (click)="digit('7')">7</button></ion-col>
-          <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('8')">8</button></ion-col>
-          <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('9')">9</button></ion-col>
-          <ion-col width-25><button ion-button round full color="dark"  (click)="calOperator('*')">*</button></ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('4')">4</button></ion-col>
-          <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('5')">5</button></ion-col>
-          <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('6')">6</button></ion-col>
-          <ion-col width-25><button ion-button round full color="dark"  (click)="calOperator('-')">-</button></ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('1')">1</button></ion-col>
-          <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('2')">2</button></ion-col>
-          <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('3')">3</button></ion-col>
-          <ion-col width-25><button ion-button round full color="dark"  (click)="calOperator('+')">+</button></ion-col>
-        </ion-row>
-        <ion-row>
-          <ion-col width-25><button ion-button round full   (click)="digit('.')">.</button></ion-col>
-          <ion-col width-25><button ion-button round full color="secondary" (click)="digit('0')">0</button></ion-col>
-          <ion-col width-25><button ion-button round full color="danger"  (click)="inputClear()">C</button></ion-col>
-          <ion-col width-25><button ion-button round full color="dark"  (click)="calOperator('/')">/</button></ion-col>
-        </ion-row>
-      </ion-grid>
-      <button ion-button type="submit" [disabled]="!calculator.form.valid" round full (click)="calResult()">Enter</button>
-    </form>
-  </ion-list>
-
+    <ion-grid>
+      <ion-row >
+        <ion-col width-100>
+          <form novalidate #calculator="ngForm">
+            <ion-item>
+              <ion-input required type="text" pattern="^([-]?)(((\\d+)(?:([.])(\\d+))?)+)(?:([-+*\\/])((?:[-])?((\\d+)(?:([.])(\\d+))?)+))+$"  name="inputedValue" [(ngModel)]="inputedVal"></ion-input>
+            </ion-item>
+            <ion-grid>
+              <ion-row>
+                <ion-col width-25><button ion-button round full color="secondary" (click)="digit('7')">7</button></ion-col>
+                <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('8')">8</button></ion-col>
+                <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('9')">9</button></ion-col>
+                <ion-col width-25><button ion-button round full color="dark"  (click)="calOperator('+')">+</button></ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('4')">4</button></ion-col>
+                <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('5')">5</button></ion-col>
+                <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('6')">6</button></ion-col>
+                <ion-col width-25><button ion-button round full color="dark"  (click)="calOperator('-')">-</button></ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('1')">1</button></ion-col>
+                <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('2')">2</button></ion-col>
+                <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('3')">3</button></ion-col>
+                <ion-col width-25><button ion-button round full color="dark"  (click)="calOperator('*')">×</button></ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col width-25><button ion-button round full   (click)="digit('.')">.</button></ion-col>
+                <ion-col width-25><button ion-button round full color="secondary" (click)="digit('0')">0</button></ion-col>
+                <ion-col width-25><button ion-button round full color="danger"  (click)="inputClear()">C</button></ion-col>
+                <ion-col width-25><button ion-button round full color="dark"  (click)="calOperator('/')">÷</button></ion-col>
+              </ion-row>
+            </ion-grid>
+            <button ion-button type="submit" [disabled]="!calculator.form.valid" round full (click)="calResult()">Enter</button>
+          </form>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
 </ion-content>
+
