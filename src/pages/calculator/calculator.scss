@@ -1,5 +1,22 @@
 calculator {
   ion-input input {
     text-align: right;
+    font-size: 3em;
+  }
+  button span{
+    font-size: 2em;
+  }
+
+  .fill-height {
+    display: flex;
+    flex-direction: column;
+  }
+  .fill-height > .row {
+    flex: 1;
+    padding: 10px;
+  }
+
+  .fill-height > .row button{
+    height:100%;
   }
 }
