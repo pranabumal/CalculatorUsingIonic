@@ -8,71 +8,38 @@
 
 <ion-content>
   <ion-list>
-    <form (ngSubmit)="calResult()">
+    <form novalidate #calculator="ngForm">
       <ion-item>
-        <ion-label>Input</ion-label>
-        <ion-input type="text" pattern="^([-]?)(((\\d+)(?:([.])(\\d+))?)+)(?:([-+*\\/])((?:[-])?((\\d+)(?:([.])(\\d+))?)+))+$"  name="inputedValue" [(ngModel)]="inputedVal"></ion-input>
+        <ion-input required type="text" pattern="^([-]?)(((\\d+)(?:([.])(\\d+))?)+)(?:([-+*\\/])((?:[-])?((\\d+)(?:([.])(\\d+))?)+))+$"  name="inputedValue" [(ngModel)]="inputedVal"></ion-input>
       </ion-item>
       <ion-grid>
         <ion-row>
-          <ion-col width-25><button ion-button full color="secondary" (click)="digit('7')">7</button></ion-col>
-          <ion-col width-25><button ion-button full color="secondary"  (click)="digit('8')">8</button></ion-col>
-          <ion-col width-25><button ion-button full color="secondary"  (click)="digit('9')">9</button></ion-col>
-          <ion-col width-25><button ion-button full color="dark"  (click)="calOperator('*')">*</button></ion-col>
+          <ion-col width-25><button ion-button round full color="secondary" (click)="digit('7')">7</button></ion-col>
+          <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('8')">8</button></ion-col>
+          <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('9')">9</button></ion-col>
+          <ion-col width-25><button ion-button round full color="dark"  (click)="calOperator('*')">*</button></ion-col>
         </ion-row>
         <ion-row>
-          <ion-col width-25><button ion-button full color="secondary"  (click)="digit('4')">4</button></ion-col>
-          <ion-col width-25><button ion-button full color="secondary"  (click)="digit('5')">5</button></ion-col>
-          <ion-col width-25><button ion-button full color="secondary"  (click)="digit('6')">6</button></ion-col>
-          <ion-col width-25><button ion-button full color="dark"  (click)="calOperator('-')">-</button></ion-col>
+          <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('4')">4</button></ion-col>
+          <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('5')">5</button></ion-col>
+          <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('6')">6</button></ion-col>
+          <ion-col width-25><button ion-button round full color="dark"  (click)="calOperator('-')">-</button></ion-col>
         </ion-row>
         <ion-row>
-          <ion-col width-25><button ion-button full color="secondary"  (click)="digit('1')">1</button></ion-col>
-          <ion-col width-25><button ion-button full color="secondary"  (click)="digit('2')">2</button></ion-col>
-          <ion-col width-25><button ion-button full color="secondary"  (click)="digit('3')">3</button></ion-col>
-          <ion-col width-25><button ion-button full color="dark"  (click)="calOperator('+')">+</button></ion-col>
+          <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('1')">1</button></ion-col>
+          <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('2')">2</button></ion-col>
+          <ion-col width-25><button ion-button round full color="secondary"  (click)="digit('3')">3</button></ion-col>
+          <ion-col width-25><button ion-button round full color="dark"  (click)="calOperator('+')">+</button></ion-col>
         </ion-row>
         <ion-row>
-          <ion-col width-25><button ion-button full   (click)="digit('.')">.</button></ion-col>
-          <ion-col width-25><button ion-button full color="secondary" (click)="digit('8')">0</button></ion-col>
-          <ion-col width-25><button ion-button full color="danger"  (click)="inputClear()">C</button></ion-col>
-          <ion-col width-25><button ion-button full color="dark"  (click)="calOperator('/')">/</button></ion-col>
+          <ion-col width-25><button ion-button round full   (click)="digit('.')">.</button></ion-col>
+          <ion-col width-25><button ion-button round full color="secondary" (click)="digit('0')">0</button></ion-col>
+          <ion-col width-25><button ion-button round full color="danger"  (click)="inputClear()">C</button></ion-col>
+          <ion-col width-25><button ion-button round full color="dark"  (click)="calOperator('/')">/</button></ion-col>
         </ion-row>
       </ion-grid>
-      <button ion-button type="submit" block>Enter</button>
+      <button ion-button type="submit" [disabled]="!calculator.form.valid" round full (click)="calResult()">Enter</button>
     </form>
   </ion-list>
 
-
-  <!--<form Name="calc">-->
-    <!--<table border=2>-->
-      <!--<tr>-->
-        <!--<td colspan=4><input pattern='(\\+?88)?(01([5-9])[\\d]{8})' name="display" onkeypress="return event.charCode >= 48 && event.charCode <= 57" type="text"></td>-->
-      <!--</tr>-->
-      <!--<tr>-->
-        <!--<td><input type=button value="0" OnClick="calc.display.value+='0'"></td>-->
-        <!--<td><input type=button value="1" OnClick="calc.display.value+='1'"></td>-->
-        <!--<td><input type=button value="2" OnClick="calc.display.value+='2'"></td>-->
-        <!--<td><input type=button value="+" OnClick="calc.display.value+='+'"></td>-->
-      <!--</tr>-->
-      <!--<tr>-->
-        <!--<td><input type=button value="3" OnClick="calc.display.value+='3'"></td>-->
-        <!--<td><input type=button value="4" OnClick="calc.display.value+='4'"></td>-->
-        <!--<td><input type=button value="5" OnClick="calc.display.value+='5'"></td>-->
-        <!--<td><input type=button value="-" OnClick="calc.display.value+='-'"></td>-->
-      <!--</tr>-->
-      <!--<tr>-->
-        <!--<td><input type=button value="6" OnClick="calc.display.value+='6'"></td>-->
-        <!--<td><input type=button value="7" OnClick="calc.display.value+='7'"></td>-->
-        <!--<td><input type=button value="8" OnClick="calc.display.value+='8'"></td>-->
-        <!--<td><input type=button value="x" OnClick="calc.display.value+='*'"></td>-->
-      <!--</tr>-->
-      <!--<tr>-->
-        <!--<td><input type=button value="9" OnClick="calc.display.value+='9'"></td>-->
-        <!--<td><input type=button value="C" OnClick="calc.display.value=''"></td>-->
-        <!--<td><input type=button value="=" OnClick="calc.display.value=eval(calc.display.value)"></td>-->
-        <!--<td><input type=button value="/" OnClick="calc.display.value+='/'"></td>-->
-      <!--</tr>-->
-    <!--</table>-->
-  <!--</form>-->
 </ion-content>
